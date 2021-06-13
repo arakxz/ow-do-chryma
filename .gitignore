@@ -1,0 +1,10 @@
+.npm
+.eslintcache
+.env
+.env.test
+.next
+
+node_modules/
+
+docker-compose.yml
+Dockerfile-dev
