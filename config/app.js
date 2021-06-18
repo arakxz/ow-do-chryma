@@ -1,6 +1,5 @@
-const dotenv = require('dotenv');
-dotenv.config();
+const Env = require('../start/container').service('Env');
 
 module.exports = {
-  port: process.env.PORT,
+  port: Env.get('PORT'),
 };

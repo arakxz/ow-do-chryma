@@ -9,7 +9,7 @@ class HelloWorldController {
     try {
       const token = new Token({ value: Token.hash() });
       await token.save();
-  
+
       response.status(201).json({ data: { token: token.value} });
     } catch (error) {
       response.status(500).json({ data: 'Error al generar un token' });

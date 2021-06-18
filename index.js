@@ -7,6 +7,7 @@ const database = require('./config/database');
 
 const port = config.port;
 
+app.use(express.json())
 app.use(require('./start/routes'));
 
 mongoose.connect(`mongodb://${database.connection.host}/${database.connection.database}`, database.options)

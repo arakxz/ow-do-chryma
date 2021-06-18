@@ -1,6 +1,6 @@
 {
   "name": "arakxz-example-express",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "example digital ocean container registry",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "arakxz",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "@arakxz/npm-kordra": "^1.0.7",
     "express": "^4.17.1",
     "mongoose": "^5.12.13"
   }

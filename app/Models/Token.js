@@ -1,43 +1,36 @@
-const crypto = require('crypto');
 const mongoose = require('mongoose');
+const Hash = require('./Traits/Hash');
 
 const schema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now },
   value: { type: String, required: true },
 });
 
-schema.methods.unauthorized = function() {
-  return false;
-};
+
+Hash(schema);
 
 
 /**
  * Hash
- * 
+ *
+ * @override
+ *
  * @returns {string}
  */
-schema.statics.hash = function() {
+ schema.statics.hash = function() {
   return schema.statics
     ._makeHash(new Date().getTime().toString());
 }
 
 
 /**
- * Make hash
- * 
- * @private
- * 
- * @param {string} text 
- * 
- * @returns {string}
+ * Validate if the token is not valid
+ *
+ * @returns {boolean}
  */
-schema.statics._makeHash = function(text) {
-  const hash = crypto
-    .createHmac('sha256', 'secret').update(text)
-    .digest('hex');
-
-  return hash;
-}
+schema.methods.unauthorized = function() {
+  return false;
+};
 
 
 module.exports = mongoose.model('Token', schema);

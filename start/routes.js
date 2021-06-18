@@ -4,20 +4,20 @@ const HelloWorldController = require('../app/Controllers/HelloWorldController');
 const HelloWorldMiddleware = require('../app/Middleware/HelloWorldMiddleware');
 
 router.get('/',
-  async function (request, response, next) {
-      const helloWorld = new HelloWorldMiddleware();
-      await helloWorld.handle(request, response, next);
+  function (request, response, next) {
+      (new HelloWorldMiddleware()).token(request, response, next);
   },
-  async function (request, response) {
-      const helloWorld = new HelloWorldController();
-      await helloWorld.index(request, response);
+  function (request, response) {
+      (new HelloWorldController()).index(request, response);
   }
 );
 
 router.post('/token',
-  async function (request, response) {
-    const helloWorld = new HelloWorldController();
-    await helloWorld.token(request, response);
+  function (request, response, next) {
+    (new HelloWorldMiddleware()).authentication(request, response, next);
+  },
+  function (request, response) {
+    (new HelloWorldController()).token(request, response);
   }
 );
 
