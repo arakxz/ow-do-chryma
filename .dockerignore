@@ -1,5 +1,12 @@
-.git
+.npm
+.eslintcache
 .env
+.env.test
+.next
+.git
 
-node_modules
+node_modules/
+
 docker-compose.yml
+Dockerfile-dev
+package-lock.json
