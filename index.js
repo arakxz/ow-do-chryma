@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-const config = require('./config/app');
-const database = require('./config/database');
+require('./start/app')
+
+const config = include('@config/app');
+const database = include('@config/database');
 
 const port = config.port;
 
