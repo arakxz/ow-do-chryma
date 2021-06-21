@@ -4,6 +4,8 @@ const schema = {
   /**
    * Hash
    *
+   * @static
+   *
    * @param {string} text
    *
    * @returns {string}
@@ -17,6 +19,7 @@ const schema = {
    * Make hash
    *
    * @private
+   * @static
    *
    * @param {string} text
    *

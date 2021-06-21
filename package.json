@@ -1,6 +1,6 @@
 {
   "name": "arakxz-example-express",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "example digital ocean container registry",
   "main": "index.js",
   "scripts": {

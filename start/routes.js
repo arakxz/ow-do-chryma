@@ -1,14 +1,20 @@
 const router = require('express').Router();
 
-const HelloWorldController = require('../app/Controllers/HelloWorldController');
-const HelloWorldMiddleware = require('../app/Middleware/HelloWorldMiddleware');
+const HelloWorldController = include('@controller/HelloWorldController');
+const HelloWorldMiddleware = include('@middleware/HelloWorldMiddleware');
 
 router.get('/',
   function (request, response, next) {
-      (new HelloWorldMiddleware()).token(request, response, next);
+    (new HelloWorldMiddleware()).token(request, response, next);
   },
   function (request, response) {
-      (new HelloWorldController()).index(request, response);
+    (new HelloWorldController()).index(request, response);
+  }
+);
+
+router.post('/start',
+  function (request, response) {
+    (new HelloWorldController()).start(request, response);
   }
 );
 

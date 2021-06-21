@@ -1,4 +1,4 @@
-const { Env, Dictionary } = require('@arakxz/npm-kordra');
+const { Dictionary } = require('@arakxz/npm-kordra');
 
 class IocDictionary extends Dictionary {
   set(key, callback) {
@@ -11,7 +11,6 @@ class IocDictionary extends Dictionary {
 }
 
 const container = new IocDictionary();
-container.set('Env', function (item) { return new Env(); });
 
 module.exports = {
   service(key, callback = null) {

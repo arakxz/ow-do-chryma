@@ -1,5 +1,5 @@
-const Token = require('../Models/Token');
-const User = require('../Models/User');
+const Token = include('@model/Token');
+const User = include('@model/User');
 
 class HelloWorldMiddleware {
   async token (request, response, next) {

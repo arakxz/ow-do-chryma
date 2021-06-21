@@ -1,4 +1,4 @@
-const Env = require('../start/container').service('Env');
+const Env = include('@container').service('Env');
 
 module.exports = {
   port: Env.get('PORT'),

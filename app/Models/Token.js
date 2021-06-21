@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Hash = require('./Traits/Hash');
+const Hash = include('@model/Traits/Hash');
 
 const schema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now },
@@ -14,10 +14,11 @@ Hash(schema);
  * Hash
  *
  * @override
+ * @static
  *
  * @returns {string}
  */
- schema.statics.hash = function() {
+schema.statics.hash = function() {
   return schema.statics
     ._makeHash(new Date().getTime().toString());
 }
